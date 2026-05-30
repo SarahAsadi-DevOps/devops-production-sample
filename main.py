@@ -7,3 +7,13 @@ app = FastAPI()
 def root():
     return {"message": "FastAPI DevOps Project"}
 
+
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
+
+
+@app.get("/readyz")
+def readyz():
+    return {"status": "ready"}
+
