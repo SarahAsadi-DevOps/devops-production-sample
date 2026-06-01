@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: devops-fastapi
+  tag: local
+  pullPolicy: IfNotPresent
+
+containerPort: 8000
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
