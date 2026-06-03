@@ -1,8 +1,8 @@
-replicaCount: 1
+replicaCount: 3
 
 image:
-  repository: devops-fastapi
-  tag: latest
+  repository: username/devops-fastapi
+  tag: 0.1.0
   pullPolicy: IfNotPresent
 
 containerPort: 8000
