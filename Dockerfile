@@ -3,7 +3,11 @@ FROM python:3.12-slim
 WORKDIR /app
 
 COPY app/requirements.txt .
-RUN pip install -r requirements.txt
+
+RUN pip install --no-cache-dir \
+    --default-timeout=200 \
+    --retries=10 \
+    -r requirements.txt
 
 COPY app ./app
 
