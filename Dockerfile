@@ -5,8 +5,9 @@ WORKDIR /app
 COPY app/requirements.txt .
 
 RUN pip install --no-cache-dir \
-    --default-timeout=200 \
-    --retries=10 \
+    --timeout 200 \
+    --retries 10 \
+    -i https://pypi.tuna.tsinghua.edu.cn/simple \
     -r requirements.txt
 
 COPY app ./app
