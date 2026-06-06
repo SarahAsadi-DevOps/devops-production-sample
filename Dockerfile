@@ -2,12 +2,14 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 COPY app/requirements.txt .
 
 RUN pip install --no-cache-dir \
-    --timeout 200 \
-    --retries 10 \
-    -i https://pypi.tuna.tsinghua.edu.cn/simple \
+    --default-timeout=100 \
+    --retries=5 \
     -r requirements.txt
 
 COPY app ./app
