@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: sarahasadi/devops-fastapi
-  tag: 0.1.2
+  tag: "0.1.2"
   pullPolicy: IfNotPresent
 
 containerPort: 8000
@@ -14,18 +14,13 @@ service:
 
 resources:
   requests:
-    cpu: "100m"
-    memory: "128Mi"
+    cpu: 100m
+    memory: 128Mi
   limits:
-    cpu: "500m"
-    memory: "256Mi"
+    cpu: 500m
+    memory: 256Mi
 
-livenessProbe:
-  path: /healthz
-  initialDelaySeconds: 10
-  periodSeconds: 10
-
-readinessProbe:
-  path: /readyz
-  initialDelaySeconds: 5
-  periodSeconds: 5
+config:
+  APP_NAME: "fastapi-devops-sample"
+  APP_ENV: "development"
+  LOG_LEVEL: "info"
