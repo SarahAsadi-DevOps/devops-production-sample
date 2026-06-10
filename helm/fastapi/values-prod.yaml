@@ -1,0 +1,27 @@
+replicaCount: 3
+
+image:
+  repository: sarahasadi/devops-fastapi
+  tag: "0.1.2"
+  pullPolicy: IfNotPresent
+
+containerPort: 8000
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+config:
+  APP_NAME: "fastapi-devops-sample"
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+
