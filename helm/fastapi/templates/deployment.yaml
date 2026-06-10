@@ -1,39 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ include "fastapi.fullname" . }}"
+  name: {{ include "fastapi.fullname" . }}
   labels:
-    app: "{{ include "fastapi.name" . }}"
+    app: {{ include "fastapi.name" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
+
   selector:
     matchLabels:
-      app: "{{ include "fastapi.name" . }}"
+      app: {{ include "fastapi.name" . }}
+
   template:
     metadata:
       labels:
-        app: "{{ include "fastapi.name" . }}"
+        app: {{ include "fastapi.name" . }}
+
     spec:
       containers:
         - name: fastapi
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+          envFrom:
+            - configMapRef:
+                name: {{ include "fastapi.fullname" . }}-config
+
           ports:
             - containerPort: {{ .Values.containerPort }}
 
           livenessProbe:
             httpGet:
-              path: {{ .Values.livenessProbe.path }}
+              path: /healthz
               port: {{ .Values.containerPort }}
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
 
           readinessProbe:
             httpGet:
-              path: {{ .Values.readinessProbe.path }}
+              path: /readyz
               port: {{ .Values.containerPort }}
-            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
 
           resources:
-{{ toYaml .Values.resources | indent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
