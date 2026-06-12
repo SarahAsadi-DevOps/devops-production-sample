@@ -25,3 +25,6 @@ config:
   APP_ENV: "production"
   LOG_LEVEL: "info"
 
+ingress:
+  enabled: true
+  host: fastapi-prod.local
