@@ -24,3 +24,7 @@ config:
   APP_NAME: "fastapi-devops-sample"
   APP_ENV: "development"
   LOG_LEVEL: "info"
+
+ingress:
+  enabled: false
+  host: ""
