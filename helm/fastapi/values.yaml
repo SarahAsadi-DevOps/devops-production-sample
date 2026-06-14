@@ -28,6 +28,7 @@ config:
 ingress:
   enabled: false
   host: ""
+  
 autoscaling:
   enabled: false
   minReplicas: 1
