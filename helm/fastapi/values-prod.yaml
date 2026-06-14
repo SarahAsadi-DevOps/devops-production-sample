@@ -28,3 +28,10 @@ config:
 ingress:
   enabled: true
   host: fastapi-prod.local
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+
