@@ -1,10 +1,43 @@
+# Git
 .git
 .gitignore
-.venv
+
+# Python cache
 __pycache__/
-.pytest_cache/
-tests/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Local artifacts
+*.tar
+
+# Project files not needed in image
+README.md
+docker-compose.yaml
+helm/
+k8s/
+argocd/
+.github/
