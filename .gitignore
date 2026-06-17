@@ -1,28 +1,71 @@
-cat > .gitignore <<'EOF'
-# Python cache
+# =========================
+# Python
+# =========================
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+*.so
 
 # Virtual environments
 .venv/
 venv/
 env/
 
-# Test / coverage
+# Pytest / coverage
 .pytest_cache/
 .coverage
 htmlcov/
 
-# IDE
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# IDE / Editor
+# =========================
 .vscode/
 .idea/
 
-# OS
+# =========================
+# OS files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Environment files
-.env
-.env.*
-EOF
+# =========================
+# Logs
+# =========================
+*.log
 
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+*.tar
+*.tar.gz
+*.tgz
+
+# =========================
+# Kubernetes / Helm
+# =========================
+charts/*.tgz
+charts/*.tar
+*.kubeconfig
+
+# =========================
+# Build artifacts
+# =========================
+dist/
+build/
+*.egg-info/
+
+# =========================
+# Terraform (اگر بعداً اضافه کردی)
+# =========================
+.terraform/
+*.tfstate
+*.tfstate.*
