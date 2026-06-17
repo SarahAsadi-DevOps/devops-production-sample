@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: sarahasadi/devops-fastapi
-  tag: "0.1.2"
+  tag: "00d512b7472e33e73242c7c39ac3bbb06107a729"
   pullPolicy: IfNotPresent
 
 containerPort: 8000
