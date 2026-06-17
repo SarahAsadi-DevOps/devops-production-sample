@@ -63,9 +63,4 @@ dist/
 build/
 *.egg-info/
 
-# =========================
-# Terraform (اگر بعداً اضافه کردی)
-# =========================
-.terraform/
-*.tfstate
-*.tfstate.*
+
