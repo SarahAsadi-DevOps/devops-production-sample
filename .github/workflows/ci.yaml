@@ -51,7 +51,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/fastapi-app:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/devops-fastapi:${{ github.sha }}
 
   update_helm:
     needs: build_and_push
